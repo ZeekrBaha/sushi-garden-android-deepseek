@@ -6,9 +6,9 @@ A pixel-perfect Russian-language sushi delivery Android app ported from iOS, bui
 
 ## Screenshots
 
-| Регистрация | Catalog |
-|-------|---------|
-| ![Регистрация](docs/screenshots/android/00_auth_register.png) | ![Catalog](docs/screenshots/android/03_catalog.png) |
+| Регистрация | Войти | Catalog |
+|-------|-------|---------|
+| ![Регистрация](docs/screenshots/android/00_auth_register.png) | ![Войти](docs/screenshots/android/01_auth_login.png) | ![Catalog](docs/screenshots/android/03_catalog.png) |
 
 | Product Detail | Promotions | Cart (filled) |
 |----------------|------------|---------------|
