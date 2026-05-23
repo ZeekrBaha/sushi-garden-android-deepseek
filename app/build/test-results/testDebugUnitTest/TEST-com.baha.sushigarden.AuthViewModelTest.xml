@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.baha.sushigarden.AuthViewModelTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-05-23T17:05:19" hostname="MacBookProM4-48GB.local" time="0.061">
+  <properties/>
+  <testcase name="initial state is register mode" classname="com.baha.sushigarden.AuthViewModelTest" time="0.018"/>
+  <testcase name="toggleMode switches between register and login" classname="com.baha.sushigarden.AuthViewModelTest" time="0.001"/>
+  <testcase name="login with invalid credentials shows error" classname="com.baha.sushigarden.AuthViewModelTest" time="0.039"/>
+  <testcase name="submit with valid register data authenticates" classname="com.baha.sushigarden.AuthViewModelTest" time="0.002"/>
+  <testcase name="submit with register and no consent shows error" classname="com.baha.sushigarden.AuthViewModelTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,15 @@
+R_DEF: Internal format may change without notice
+local
+drawable banner_promo_1
+drawable banner_promo_2
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable product_hikari
+drawable product_idaho
+drawable product_la
+drawable product_osaka
+font sen_bold
+font sen_regular
+mipmap ic_launcher
+string app_name
+style Theme.SushiGarden

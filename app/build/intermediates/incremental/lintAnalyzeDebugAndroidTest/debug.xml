@@ -1,0 +1,35 @@
+<variant
+    name="debug"
+    package="com.baha.sushigarden"
+    minSdkVersion="26"
+    targetSdkVersion="36"
+    debuggable="true"
+    mergedManifest="build/intermediates/merged_manifest/debug/processDebugMainManifest/AndroidManifest.xml"
+    partialResultsDir="build/intermediates/android_test_lint_partial_results/debug/lintAnalyzeDebugAndroidTest/out"
+    desugaredMethodsFiles="/Users/baha/.gradle/caches/8.9/transforms/73513597c8ac85ad21b5e763c1a0d425/transformed/D8BackportedDesugaredMethods.txt">
+  <buildFeatures
+      namespacing="REQUIRED"/>
+  <sourceProviders>
+  </sourceProviders>
+  <testSourceProviders>
+    <sourceProvider
+        manifests="src/androidTest/AndroidManifest.xml"
+        javaDirectories="src/androidTest/java:src/androidTestDebug/java:src/androidTest/kotlin:src/androidTestDebug/kotlin"
+        resDirectories="src/androidTest/res:src/androidTestDebug/res"
+        assetsDirectories="src/androidTest/assets:src/androidTestDebug/assets"
+        androidTest="true"/>
+  </testSourceProviders>
+  <testFixturesSourceProviders>
+  </testFixturesSourceProviders>
+  <manifestPlaceholders>
+    <placeholder
+        name="MAPS_API_KEY"
+        value="" />
+  </manifestPlaceholders>
+  <artifact
+      type="INSTRUMENTATION_TEST"
+      applicationId="com.baha.sushigarden.test"
+      generatedResourceFolders="build/generated/res/resValues/androidTest/debug"
+      desugaredMethodsFiles="/Users/baha/.gradle/caches/8.9/transforms/73513597c8ac85ad21b5e763c1a0d425/transformed/D8BackportedDesugaredMethods.txt">
+  </artifact>
+</variant>

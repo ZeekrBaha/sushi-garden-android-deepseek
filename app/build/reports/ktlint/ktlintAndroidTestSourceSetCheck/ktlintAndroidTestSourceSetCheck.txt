@@ -1,0 +1,4 @@
+[90m/Users/baha/Desktop/llm-ai-projects/sushi-garden-android-deepseek/app/src/androidTest/java/com/baha/sushigarden/[0mSushiGardenTestRunner.kt[90m:[0m13[90m:20:[0m Function body should be replaced with body expression [90m(standard:function-expression-body)[0m
+
+Summary error count (descending) by rule:
+  standard:function-expression-body: 1

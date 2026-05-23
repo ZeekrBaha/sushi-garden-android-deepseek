@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.baha.sushigarden.app-main-77:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/font_sen_bold.ttf.flat",
+        "source": "com.baha.sushigarden.app-main-77:/font/sen_bold.ttf"
+    },
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/mipmap-hdpi_ic_launcher.xml.flat",
+        "source": "com.baha.sushigarden.app-main-77:/mipmap-hdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/mipmap-xxxhdpi_ic_launcher.xml.flat",
+        "source": "com.baha.sushigarden.app-main-77:/mipmap-xxxhdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/mipmap-mdpi_ic_launcher.xml.flat",
+        "source": "com.baha.sushigarden.app-main-77:/mipmap-mdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/drawable_product_la.png.flat",
+        "source": "com.baha.sushigarden.app-main-77:/drawable/product_la.png"
+    },
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/drawable_product_hikari.png.flat",
+        "source": "com.baha.sushigarden.app-main-77:/drawable/product_hikari.png"
+    },
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/mipmap-xxhdpi_ic_launcher.xml.flat",
+        "source": "com.baha.sushigarden.app-main-77:/mipmap-xxhdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/font_sen_regular.ttf.flat",
+        "source": "com.baha.sushigarden.app-main-77:/font/sen_regular.ttf"
+    },
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/drawable_banner_promo_1.png.flat",
+        "source": "com.baha.sushigarden.app-main-77:/drawable/banner_promo_1.png"
+    },
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/drawable_banner_promo_2.png.flat",
+        "source": "com.baha.sushigarden.app-main-77:/drawable/banner_promo_2.png"
+    },
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.baha.sushigarden.app-main-77:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/drawable_product_osaka.png.flat",
+        "source": "com.baha.sushigarden.app-main-77:/drawable/product_osaka.png"
+    },
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/mipmap-xhdpi_ic_launcher.xml.flat",
+        "source": "com.baha.sushigarden.app-main-77:/mipmap-xhdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.baha.sushigarden.app-debug-75:/drawable_product_idaho.png.flat",
+        "source": "com.baha.sushigarden.app-main-77:/drawable/product_idaho.png"
+    }
+]

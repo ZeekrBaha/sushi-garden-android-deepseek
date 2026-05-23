@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.baha.sushigarden.FieldValidatorsTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-05-23T17:05:19" hostname="MacBookProM4-48GB.local" time="0.001">
+  <properties/>
+  <testcase name="valid password returns true" classname="com.baha.sushigarden.FieldValidatorsTest" time="0.0"/>
+  <testcase name="short password returns false" classname="com.baha.sushigarden.FieldValidatorsTest" time="0.0"/>
+  <testcase name="valid email returns true" classname="com.baha.sushigarden.FieldValidatorsTest" time="0.0"/>
+  <testcase name="invalid email returns false" classname="com.baha.sushigarden.FieldValidatorsTest" time="0.0"/>
+  <testcase name="nonEmpty returns false for empty" classname="com.baha.sushigarden.FieldValidatorsTest" time="0.001"/>
+  <testcase name="nonEmpty returns true for non-empty" classname="com.baha.sushigarden.FieldValidatorsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
