@@ -1,19 +1,27 @@
 package com.baha.sushigarden
 
+import androidx.compose.runtime.remember
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.baha.sushigarden.features.checkout.CheckoutScreen
 import com.baha.sushigarden.features.checkout.CheckoutViewModel
+import com.baha.sushigarden.data.services.cart.CartService
+import com.baha.sushigarden.data.services.orders.OrderDao
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import javax.inject.Inject
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
 @HiltAndroidTest
 class CheckoutFlowTest {
+    @Inject
+    lateinit var cartService: CartService
+    @Inject
+    lateinit var orderDao: OrderDao
+
     @get:Rule(order = 0)
     val hiltRule = HiltAndroidRule(this)
 
@@ -28,7 +36,7 @@ class CheckoutFlowTest {
     @Test
     fun checkoutScreen_showsFields() {
         composeRule.setContent {
-            val vm: CheckoutViewModel = hiltViewModel()
+            val vm = remember { CheckoutViewModel(cartService, orderDao) }
             CheckoutScreen(onOrderPlaced = {}, viewModel = vm)
         }
         composeRule.onNodeWithText("Итого").assertIsDisplayed()
@@ -38,7 +46,7 @@ class CheckoutFlowTest {
     @Test
     fun checkout_showsDeliveryFees() {
         composeRule.setContent {
-            val vm: CheckoutViewModel = hiltViewModel()
+            val vm = remember { CheckoutViewModel(cartService, orderDao) }
             CheckoutScreen(onOrderPlaced = {}, viewModel = vm)
         }
         composeRule.onNodeWithText("Доставка").assertIsDisplayed()

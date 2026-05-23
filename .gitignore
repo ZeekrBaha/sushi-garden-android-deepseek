@@ -21,3 +21,5 @@ out/
 *.hprof
 .firebase
 google-services.json
+app/build/
+.gradle/

@@ -1,19 +1,24 @@
 package com.baha.sushigarden
 
+import androidx.compose.runtime.remember
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.baha.sushigarden.features.tracking.TrackingScreen
 import com.baha.sushigarden.features.tracking.TrackingViewModel
+import com.baha.sushigarden.data.services.delivery.CourierSimulator
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import javax.inject.Inject
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
 @HiltAndroidTest
 class TrackingFlowTest {
+    @Inject
+    lateinit var courierSimulator: CourierSimulator
+
     @get:Rule(order = 0)
     val hiltRule = HiltAndroidRule(this)
 
@@ -28,7 +33,7 @@ class TrackingFlowTest {
     @Test
     fun trackingScreen_showsCourierName() {
         composeRule.setContent {
-            val vm: TrackingViewModel = hiltViewModel()
+            val vm = remember { TrackingViewModel(courierSimulator) }
             TrackingScreen(viewModel = vm)
         }
         composeRule.onNodeWithText("Максим Винокур").assertIsDisplayed()

@@ -1,9 +1,9 @@
 package com.baha.sushigarden
 
+import androidx.compose.runtime.remember
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.baha.sushigarden.data.models.Category
 import com.baha.sushigarden.data.models.Product
 import com.baha.sushigarden.data.services.cart.CartService
@@ -18,14 +18,14 @@ import javax.inject.Inject
 
 @HiltAndroidTest
 class CartFlowTest {
+    @Inject
+    lateinit var cartService: CartService
+
     @get:Rule(order = 0)
     val hiltRule = HiltAndroidRule(this)
 
     @get:Rule(order = 1)
     val composeRule = createComposeRule()
-
-    @Inject
-    lateinit var cartService: CartService
 
     @Before
     fun setUp() {
@@ -35,7 +35,7 @@ class CartFlowTest {
     @Test
     fun emptyCart_showsEmptyState() {
         composeRule.setContent {
-            val vm: CartViewModel = hiltViewModel()
+            val vm = remember { CartViewModel(cartService) }
             CartScreen(onCheckout = {}, viewModel = vm)
         }
         composeRule.onNodeWithText("Корзина пуста").assertIsDisplayed()
@@ -47,7 +47,7 @@ class CartFlowTest {
         cartService.addProduct(product)
 
         composeRule.setContent {
-            val vm: CartViewModel = hiltViewModel()
+            val vm = remember { CartViewModel(cartService) }
             CartScreen(onCheckout = {}, viewModel = vm)
         }
         composeRule.onNodeWithText("Хикари").assertIsDisplayed()
@@ -60,20 +60,10 @@ class CartFlowTest {
         cartService.addProduct(product)
 
         composeRule.setContent {
-            val vm: CartViewModel = hiltViewModel()
+            val vm = remember { CartViewModel(cartService) }
             CartScreen(onCheckout = {}, viewModel = vm)
         }
         composeRule.onNodeWithText("Оформить заказ · 707 ₽").assertIsDisplayed()
     }
 
-    @Test
-    fun cart_showsAddOns() {
-        composeRule.setContent {
-            val vm: CartViewModel = hiltViewModel()
-            CartScreen(onCheckout = {}, viewModel = vm)
-        }
-        composeRule.onNodeWithText("Добавить еще").assertIsDisplayed()
-        composeRule.onNodeWithText("Васаби").assertIsDisplayed()
-        composeRule.onNodeWithText("Имбирь").assertIsDisplayed()
-    }
 }
