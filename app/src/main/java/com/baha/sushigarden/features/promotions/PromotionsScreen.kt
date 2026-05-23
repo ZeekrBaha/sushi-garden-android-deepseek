@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
+import com.baha.sushigarden.ui.components.rememberImageRequest
 import com.baha.sushigarden.ui.designsystem.AppColor
 import com.baha.sushigarden.ui.designsystem.AppSpacing
 
@@ -36,7 +37,7 @@ fun PromotionsScreen(
     ) {
         items(state.banners, key = { it.id }) { banner ->
             AsyncImage(
-                model = banner.imageName,
+                model = rememberImageRequest(banner.imageName),
                 contentDescription = null,
                 modifier =
                     Modifier

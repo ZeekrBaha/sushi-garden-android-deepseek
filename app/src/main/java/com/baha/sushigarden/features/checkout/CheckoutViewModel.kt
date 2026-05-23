@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.baha.sushigarden.data.models.OrderEntity
 import com.baha.sushigarden.data.models.OrderLine
 import com.baha.sushigarden.data.services.cart.CartService
+import com.baha.sushigarden.data.services.delivery.FieldValidators
 import com.baha.sushigarden.data.services.orders.OrderDao
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -65,11 +66,21 @@ class CheckoutViewModel
             _state.value = _state.value.copy(email = email)
         }
 
-        fun placeOrder() {
+        private fun validate(): String? {
             val s = _state.value
-            if (s.name.isBlank() || s.phone.isBlank() || s.email.isBlank()) {
-                Timber.w("Place order failed: empty fields")
-                _state.value = s.copy(error = "Заполните все поля")
+            if (s.name.isBlank()) return "Введите имя"
+            if (s.phone.isBlank()) return "Введите телефон"
+            if (!FieldValidators.isValidPhone(s.phone)) return "Неверный формат телефона"
+            if (s.email.isBlank()) return "Введите email"
+            if (!s.email.contains("@") || !s.email.contains(".")) return "Неверный формат email"
+            return null
+        }
+
+        fun placeOrder() {
+            val validationError = validate()
+            if (validationError != null) {
+                Timber.w("Place order validation failed: $validationError")
+                _state.value = _state.value.copy(error = validationError)
                 return
             }
 
@@ -77,10 +88,16 @@ class CheckoutViewModel
                 _state.value = _state.value.copy(isLoading = true, error = null)
                 try {
                     val items = cartService.items.first()
+                    if (items.isEmpty()) {
+                        _state.value =
+                            _state.value.copy(isLoading = false, error = "Корзина пуста")
+                        return@launch
+                    }
+
                     val addOnsTotal = cartService.selectedAddOns.first().sumOf { it.priceRub }
                     val lines = items.map { OrderLine(it.product.name, it.quantity, it.product.priceRub) }
                     val subtotal = items.sumOf { it.lineTotal } + addOnsTotal
-                    val total = subtotal + s.deliveryFee + s.serviceFee
+                    val total = subtotal + _state.value.deliveryFee + _state.value.serviceFee
 
                     val orderId = "order_${System.currentTimeMillis()}"
                     val orderEntity =

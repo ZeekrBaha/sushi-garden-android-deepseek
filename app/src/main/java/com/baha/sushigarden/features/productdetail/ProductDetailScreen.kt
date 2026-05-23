@@ -26,6 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.baha.sushigarden.ui.components.rememberImageRequest
 import com.baha.sushigarden.ui.designsystem.AppColor
 import com.baha.sushigarden.ui.designsystem.AppFont
 import com.baha.sushigarden.ui.designsystem.AppSpacing
@@ -54,7 +55,7 @@ fun ProductDetailScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         AsyncImage(
-            model = product.imageName,
+            model = rememberImageRequest(product.imageName),
             contentDescription = product.name,
             modifier =
                 Modifier

@@ -52,7 +52,7 @@ fun AuthScreen(
 ) {
     val state by viewModel.state.collectAsState()
 
-    Box(
+    Column(
         modifier =
             Modifier
                 .fillMaxSize()
@@ -61,130 +61,129 @@ fun AuthScreen(
         Column(
             modifier =
                 Modifier
-                    .fillMaxSize()
-                    .padding(horizontal = 22.dp),
+                    .fillMaxWidth()
+                    .padding(horizontal = 22.dp)
+                    .weight(0.25f),
+            verticalArrangement = Arrangement.Bottom,
         ) {
-            Spacer(modifier = Modifier.weight(0.2f))
-
             Text(
                 text = if (state.isRegisterMode) "Регистрация" else "Войти",
                 style = AppFont.sectionHeader.copy(fontSize = 29.sp),
                 color = AppColor.textPrimary,
             )
+        }
 
-            Spacer(modifier = Modifier.height(32.dp))
+        Column(
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .weight(0.75f)
+                    .clip(RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp))
+                    .background(Color.White)
+                    .padding(horizontal = 22.dp, vertical = 34.dp),
+            verticalArrangement = Arrangement.spacedBy(18.dp),
+        ) {
+            if (state.isRegisterMode) {
+                AuthField(
+                    label = "ИМЯ",
+                    value = state.name,
+                    placeholder = "Александр",
+                    onValueChange = viewModel::updateName,
+                )
+            }
 
-            Column(
+            AuthField(
+                label = "ПОЧТА",
+                value = state.email,
+                placeholder = "example@gmail.com",
+                onValueChange = viewModel::updateEmail,
+                keyboardType = KeyboardType.Email,
+            )
+
+            AuthField(
+                label = "ПАРОЛЬ",
+                value = state.password,
+                placeholder = "**********",
+                onValueChange = viewModel::updatePassword,
+                isPassword = true,
+                isPasswordVisible = state.isPasswordVisible,
+                onTogglePassword = viewModel::togglePasswordVisibility,
+            )
+
+            if (state.isRegisterMode) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(14.dp),
+                ) {
+                    Box(
+                        modifier =
+                            Modifier
+                                .size(18.dp)
+                                .clip(RoundedCornerShape(3.dp))
+                                .border(1.dp, AuthColor.checkboxBorder, RoundedCornerShape(3.dp))
+                                .background(if (state.isConsentChecked) AppColor.accent else Color.White)
+                                .clickable { viewModel.toggleConsent() },
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        if (state.isConsentChecked) {
+                            Icon(
+                                imageVector = Icons.Filled.Check,
+                                contentDescription = null,
+                                tint = Color.White,
+                                modifier = Modifier.size(12.dp),
+                            )
+                        }
+                    }
+
+                    Text(
+                        text = "Я согласен с Условиями предоставления услуг и Политикой конфиденциальности",
+                        style = AppFont.weight.copy(fontSize = 12.sp),
+                        color = AuthColor.secondaryText,
+                    )
+                }
+            }
+
+            Button(
+                onClick = viewModel::submit,
                 modifier =
                     Modifier
                         .fillMaxWidth()
-                        .clip(RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp))
-                        .background(Color.White)
-                        .padding(horizontal = 22.dp, vertical = 34.dp),
-                verticalArrangement = Arrangement.spacedBy(18.dp),
+                        .height(56.dp),
+                shape = RoundedCornerShape(10.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = AppColor.accent),
+                enabled = !state.isLoading,
             ) {
-                if (state.isRegisterMode) {
-                    AuthField(
-                        label = "ИМЯ",
-                        value = state.name,
-                        placeholder = "Александр",
-                        onValueChange = viewModel::updateName,
-                    )
-                }
-
-                AuthField(
-                    label = "ПОЧТА",
-                    value = state.email,
-                    placeholder = "example@gmail.com",
-                    onValueChange = viewModel::updateEmail,
-                    keyboardType = KeyboardType.Email,
-                )
-
-                AuthField(
-                    label = "ПАРОЛЬ",
-                    value = state.password,
-                    placeholder = "**********",
-                    onValueChange = viewModel::updatePassword,
-                    isPassword = true,
-                    isPasswordVisible = state.isPasswordVisible,
-                    onTogglePassword = viewModel::togglePasswordVisibility,
-                )
-
-                if (state.isRegisterMode) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(14.dp),
-                    ) {
-                        Box(
-                            modifier =
-                                Modifier
-                                    .size(18.dp)
-                                    .clip(RoundedCornerShape(3.dp))
-                                    .border(1.dp, AuthColor.checkboxBorder, RoundedCornerShape(3.dp))
-                                    .background(if (state.isConsentChecked) AppColor.accent else Color.White)
-                                    .clickable { viewModel.toggleConsent() },
-                            contentAlignment = Alignment.Center,
-                        ) {
-                            if (state.isConsentChecked) {
-                                Icon(
-                                    imageVector = Icons.Filled.Check,
-                                    contentDescription = null,
-                                    tint = Color.White,
-                                    modifier = Modifier.size(12.dp),
-                                )
-                            }
-                        }
-
-                        Text(
-                            text = "Я согласен с Условиями предоставления услуг и Политикой конфиденциальности",
-                            style = AppFont.weight.copy(fontSize = 12.sp),
-                            color = AuthColor.secondaryText,
-                        )
-                    }
-                }
-
-                Button(
-                    onClick = viewModel::submit,
-                    modifier =
-                        Modifier
-                            .fillMaxWidth()
-                            .height(56.dp),
-                    shape = RoundedCornerShape(10.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = AppColor.accent),
-                    enabled = !state.isLoading,
-                ) {
-                    if (state.isLoading) {
-                        Text("...", color = AppColor.textPrimary)
-                    } else {
-                        Text(
-                            text = if (state.isRegisterMode) "Регистрация" else "Войти",
-                            style = AppFont.sectionHeader,
-                            color = AppColor.textPrimary,
-                        )
-                    }
-                }
-
-                state.error?.let { error ->
+                if (state.isLoading) {
+                    Text("...", color = AppColor.textPrimary)
+                } else {
                     Text(
-                        text = error,
-                        color = AppColor.accent,
-                        style = AppFont.weight.copy(fontSize = 12.sp),
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.fillMaxWidth(),
+                        text = if (state.isRegisterMode) "Регистрация" else "Войти",
+                        style = AppFont.sectionHeader,
+                        color = AppColor.textPrimary,
                     )
                 }
+            }
 
+            state.error?.let { error ->
                 Text(
-                    text = if (state.isRegisterMode) "Уже есть аккаунт?" else "У вас нет аккаунта?",
-                    color = AuthColor.secondaryAction,
-                    style = AppFont.weight.copy(fontSize = 14.sp),
+                    text = error,
+                    color = AppColor.accent,
+                    style = AppFont.weight.copy(fontSize = 12.sp),
                     textAlign = TextAlign.Center,
-                    modifier =
-                        Modifier
-                            .fillMaxWidth()
-                            .clickable { viewModel.toggleMode() },
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
+
+            Text(
+                text = if (state.isRegisterMode) "Уже есть аккаунт?" else "У вас нет аккаунта?",
+                color = AuthColor.secondaryAction,
+                style = AppFont.weight.copy(fontSize = 14.sp),
+                textAlign = TextAlign.Center,
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .clickable { viewModel.toggleMode() },
+            )
         }
     }
 }

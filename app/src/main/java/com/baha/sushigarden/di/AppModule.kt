@@ -2,8 +2,10 @@ package com.baha.sushigarden.di
 
 import android.content.Context
 import androidx.room.Room
+import com.baha.sushigarden.BuildConfig
 import com.baha.sushigarden.data.services.auth.AuthService
 import com.baha.sushigarden.data.services.auth.FakeAuthService
+import com.baha.sushigarden.data.services.auth.FirebaseAuthService
 import com.baha.sushigarden.data.services.cart.CartService
 import com.baha.sushigarden.data.services.cart.InMemoryCartService
 import com.baha.sushigarden.data.services.catalog.LocalMenuRepository
@@ -22,7 +24,16 @@ import javax.inject.Singleton
 object AppModule {
     @Provides
     @Singleton
-    fun provideAuthService(): AuthService = FakeAuthService()
+    fun provideAuthService(): AuthService =
+        if (BuildConfig.IS_UI_TEST) {
+            FakeAuthService()
+        } else {
+            try {
+                FirebaseAuthService()
+            } catch (_: Exception) {
+                FakeAuthService()
+            }
+        }
 
     @Provides
     @Singleton

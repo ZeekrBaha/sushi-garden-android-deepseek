@@ -29,6 +29,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import coil.compose.AsyncImage
 import com.baha.sushigarden.data.models.Product
+import com.baha.sushigarden.ui.components.rememberImageRequest
 import com.baha.sushigarden.ui.designsystem.AppColor
 import com.baha.sushigarden.ui.designsystem.AppFont
 import com.baha.sushigarden.ui.designsystem.AppSpacing
@@ -100,7 +101,7 @@ fun ProductCardView(
         horizontalAlignment = Alignment.Start,
     ) {
         AsyncImage(
-            model = product.imageName,
+            model = rememberImageRequest(product.imageName),
             contentDescription = product.name,
             modifier =
                 Modifier

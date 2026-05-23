@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.baha.sushigarden.data.models.CartItem
+import com.baha.sushigarden.ui.components.rememberImageRequest
 import com.baha.sushigarden.ui.designsystem.AppColor
 import com.baha.sushigarden.ui.designsystem.AppFont
 import com.baha.sushigarden.ui.designsystem.AppSpacing
@@ -173,7 +174,7 @@ private fun CartItemRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         AsyncImage(
-            model = item.product.imageName,
+            model = rememberImageRequest(item.product.imageName),
             contentDescription = item.product.name,
             modifier =
                 Modifier

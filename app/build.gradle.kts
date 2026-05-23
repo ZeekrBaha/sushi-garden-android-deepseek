@@ -31,7 +31,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.baha.sushigarden.SushiGardenTestRunner"
 
         buildConfigField("boolean", "IS_UI_TEST", "false")
 

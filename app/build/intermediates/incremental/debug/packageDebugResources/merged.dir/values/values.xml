@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Sushi Garden</string>
-    <style name="Theme.SushiGarden" parent="android:Theme.Material.NoActionBar">
-        <item name="android:statusBarColor">#FF0F0F11</item>
-        <item name="android:navigationBarColor">#FF161616</item>
-        <item name="android:windowBackground">#FF0F0F11</item>
-    </style>
-</resources>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<checkstyle version="8.0">
-    <file name="/Users/baha/Desktop/llm-ai-projects/sushi-garden-android-deepseek/app/src/androidTest/java/com/baha/sushigarden/SushiGardenTestRunner.kt">
-        <error line="13" column="20" severity="error" message="Function body should be replaced with body expression" source="standard:function-expression-body" />
-    </file>
-</checkstyle>
