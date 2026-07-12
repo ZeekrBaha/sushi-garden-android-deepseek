@@ -12,7 +12,7 @@ import org.junit.Test
 
 class CartServiceTest {
     private val cartService = InMemoryCartService()
-    private val product = Product("hikari", "Хикари", Category.rolls, 620, 255, "product_hikari", "desc")
+    private val product = Product("hikari", "Хикари", Category.Rolls, 620, 255, "product_hikari", "desc")
 
     @Test
     fun `addProduct adds item to cart`() =

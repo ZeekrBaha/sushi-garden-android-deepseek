@@ -17,7 +17,7 @@ class MenuRepositoryTest {
 
     @Test
     fun `getProductsByCategory returns filtered items`() {
-        val rolls = repo.getProductsByCategory(Category.rolls)
+        val rolls = repo.getProductsByCategory(Category.Rolls)
         assertEquals(4, rolls.size)
     }
 

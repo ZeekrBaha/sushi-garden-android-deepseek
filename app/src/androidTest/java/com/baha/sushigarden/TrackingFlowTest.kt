@@ -4,15 +4,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import com.baha.sushigarden.data.services.delivery.CourierSimulator
 import com.baha.sushigarden.features.tracking.TrackingScreen
 import com.baha.sushigarden.features.tracking.TrackingViewModel
-import com.baha.sushigarden.data.services.delivery.CourierSimulator
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import javax.inject.Inject
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import javax.inject.Inject
 
 @HiltAndroidTest
 class TrackingFlowTest {

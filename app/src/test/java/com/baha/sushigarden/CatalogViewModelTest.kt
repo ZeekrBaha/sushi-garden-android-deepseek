@@ -11,23 +11,23 @@ class CatalogViewModelTest {
     @Test
     fun `initial state selects rolls category`() {
         val vm = CatalogViewModel(LocalMenuRepository())
-        assertEquals(Category.rolls, vm.state.value.selectedCategory)
+        assertEquals(Category.Rolls, vm.state.value.selectedCategory)
     }
 
     @Test
     fun `selectCategory filters products`() {
         val vm = CatalogViewModel(LocalMenuRepository())
-        vm.selectCategory(Category.sushi)
+        vm.selectCategory(Category.Sushi)
         assertTrue(
             vm.state.value.products
-                .all { it.category == Category.sushi },
+                .all { it.category == Category.Sushi },
         )
     }
 
     @Test
     fun `selectCategory switches products`() {
         val vm = CatalogViewModel(LocalMenuRepository())
-        vm.selectCategory(Category.wok)
+        vm.selectCategory(Category.Wok)
         assertEquals(1, vm.state.value.products.size)
     }
 

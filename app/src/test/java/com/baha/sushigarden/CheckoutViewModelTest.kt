@@ -15,7 +15,6 @@ import org.junit.Test
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class CheckoutViewModelTest {
-
     private val cartService = InMemoryCartService()
     private val orderDao = mockk<OrderDao>(relaxed = true)
 

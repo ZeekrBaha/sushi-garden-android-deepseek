@@ -43,7 +43,7 @@ class CartFlowTest {
 
     @Test
     fun filledCart_showsCartItems() {
-        val product = Product("hikari", "Хикари", Category.rolls, 620, 255, "product_hikari", "desc")
+        val product = Product("hikari", "Хикари", Category.Rolls, 620, 255, "product_hikari", "desc")
         cartService.addProduct(product)
 
         composeRule.setContent {
@@ -56,7 +56,7 @@ class CartFlowTest {
 
     @Test
     fun filledCart_showsCheckoutButton() {
-        val product = Product("la", "Лос-Анджелес", Category.rolls, 707, 285, "product_la", "desc")
+        val product = Product("la", "Лос-Анджелес", Category.Rolls, 707, 285, "product_la", "desc")
         cartService.addProduct(product)
 
         composeRule.setContent {
@@ -65,5 +65,4 @@ class CartFlowTest {
         }
         composeRule.onNodeWithText("Оформить заказ · 707 ₽").assertIsDisplayed()
     }
-
 }

@@ -24,15 +24,15 @@ class LocalMenuRepository
     constructor() : MenuRepository {
         private val allProducts =
             listOf(
-                Product("hikari", "Хикари", Category.rolls, 620, 255, "product_hikari", "Креветка в темпуре, сливочный сыр, огурец."),
-                Product("la", "Лос-Анджелес", Category.rolls, 707, 285, "product_la", "Лосось, сливочный сыр, авокадо, икра тобико."),
-                Product("idaho", "Айдахо маки", Category.rolls, 810, 285, "product_idaho", "Запечённый ролл с лососем и сыром."),
-                Product("osaka", "Осака маки", Category.rolls, 740, 275, "product_osaka", "Угорь, огурец, унаги соус."),
-                Product("sushi_salmon", "Суши с лососем", Category.sushi, 120, 35, "product_la", "Свежий лосось на рисе."),
-                Product("sushi_eel", "Суши с угрём", Category.sushi, 150, 35, "product_osaka", "Копчёный угорь на рисе."),
-                Product("hot_ebi", "Эби темпура", Category.hotRolls, 690, 260, "product_idaho", "Ролл с креветкой в темпуре."),
-                Product("salad_chuka", "Чука салат", Category.salads, 320, 150, "product_hikari", "Салат чука с ореховым соусом."),
-                Product("wok_udon", "Удон с курицей", Category.wok, 450, 350, "product_idaho", "Лапша удон с курицей и овощами."),
+                Product("hikari", "Хикари", Category.Rolls, 620, 255, "product_hikari", "Креветка в темпуре, сливочный сыр, огурец."),
+                Product("la", "Лос-Анджелес", Category.Rolls, 707, 285, "product_la", "Лосось, сливочный сыр, авокадо, икра тобико."),
+                Product("idaho", "Айдахо маки", Category.Rolls, 810, 285, "product_idaho", "Запечённый ролл с лососем и сыром."),
+                Product("osaka", "Осака маки", Category.Rolls, 740, 275, "product_osaka", "Угорь, огурец, унаги соус."),
+                Product("sushi_salmon", "Суши с лососем", Category.Sushi, 120, 35, "product_la", "Свежий лосось на рисе."),
+                Product("sushi_eel", "Суши с угрём", Category.Sushi, 150, 35, "product_osaka", "Копчёный угорь на рисе."),
+                Product("hot_ebi", "Эби темпура", Category.HotRolls, 690, 260, "product_idaho", "Ролл с креветкой в темпуре."),
+                Product("salad_chuka", "Чука салат", Category.Salads, 320, 150, "product_hikari", "Салат чука с ореховым соусом."),
+                Product("wok_udon", "Удон с курицей", Category.Wok, 450, 350, "product_idaho", "Лапша удон с курицей и овощами."),
             )
 
         private val banners =

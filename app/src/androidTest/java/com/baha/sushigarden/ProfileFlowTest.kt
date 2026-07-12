@@ -1,28 +1,30 @@
 package com.baha.sushigarden
 
+import android.content.Context
 import androidx.compose.runtime.remember
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
-import com.baha.sushigarden.features.profile.ProfileScreen
-import com.baha.sushigarden.features.profile.ProfileViewModel
-import android.content.Context
 import com.baha.sushigarden.data.services.auth.AuthService
 import com.baha.sushigarden.data.services.orders.OrderDao
+import com.baha.sushigarden.features.profile.ProfileScreen
+import com.baha.sushigarden.features.profile.ProfileViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import javax.inject.Inject
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import javax.inject.Inject
 
 @HiltAndroidTest
 class ProfileFlowTest {
     @Inject
     lateinit var authService: AuthService
+
     @Inject
     lateinit var orderDao: OrderDao
+
     @Inject
     @ApplicationContext
     lateinit var context: Context

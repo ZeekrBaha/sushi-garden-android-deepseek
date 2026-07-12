@@ -13,9 +13,9 @@ data class Product(
 enum class Category(
     val displayName: String,
 ) {
-    sushi("Суши"),
-    rolls("Роллы"),
-    hotRolls("Горячие роллы"),
-    salads("Салаты"),
-    wok("WOK"),
+    Sushi("Суши"),
+    Rolls("Роллы"),
+    HotRolls("Горячие роллы"),
+    Salads("Салаты"),
+    Wok("WOK"),
 }

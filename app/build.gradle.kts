@@ -10,7 +10,7 @@ plugins {
 configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
     verbose.set(true)
     outputToConsole.set(true)
-    ignoreFailures.set(true)
+    ignoreFailures.set(false)
     reporters {
         reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
         reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)

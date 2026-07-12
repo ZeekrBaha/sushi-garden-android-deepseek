@@ -5,15 +5,15 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import com.baha.sushigarden.data.services.catalog.MenuRepository
 import com.baha.sushigarden.features.catalog.CatalogScreen
 import com.baha.sushigarden.features.catalog.CatalogViewModel
-import com.baha.sushigarden.data.services.catalog.MenuRepository
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import javax.inject.Inject
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import javax.inject.Inject
 
 @HiltAndroidTest
 class CatalogFlowTest {

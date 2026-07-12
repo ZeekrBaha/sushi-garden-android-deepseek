@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 data class CatalogUiState(
     val categories: List<Category> = Category.entries,
-    val selectedCategory: Category = Category.rolls,
+    val selectedCategory: Category = Category.Rolls,
     val products: List<Product> = emptyList(),
 )
 
@@ -28,7 +28,7 @@ class CatalogViewModel
 
         init {
             Timber.i("CatalogViewModel initialized")
-            selectCategory(Category.rolls)
+            selectCategory(Category.Rolls)
         }
 
         fun selectCategory(category: Category) {
